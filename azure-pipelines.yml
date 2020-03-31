@@ -1,0 +1,9 @@
+trigger:
+- master
+
+steps:
+- task: RunMATLABTests@0
+  inputs:
+    testResultsJUnit: 'matlab-artifacts/testresults.xml'
+    codeCoverageCobertura: 'matlab-artifacts/coverage.xml'
+    sourceFolder: 'source'
