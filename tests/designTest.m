@@ -11,10 +11,10 @@ function testSettlingTime(testCase)
 
 [position, time] = simulateSystem(springMassDamperDesign); 
 
-positionAfterSettling = position(time > .002);
+positionAfterSettling = position(time > 2);
 
-%For this example, verify the first value after the settling time.
-verifyLessThan(testCase, abs(positionAfterSettling), 2);
+
+verifyEqual(testCase, positionAfterSettling, 0, 'AbsTol', .000001);
 end
 
 function testOvershoot(testCase)
@@ -23,7 +23,7 @@ function testOvershoot(testCase)
 [position, ~] = simulateSystem(springMassDamperDesign);
 overshoot = max(position);
 
-verifyLessThan(testCase, overshoot, 0.005);
+verifyLessThan(testCase, overshoot, 0.01);
 end
 
 function testInvalidInput(testCase)
