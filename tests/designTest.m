@@ -23,7 +23,7 @@ function testOvershoot(testCase)
 [position, ~] = simulateSystem(springMassDamperDesign);
 overshoot = max(position);
 
-verifyLessThan(testCase, overshoot, 0.01);
+verifyLessThan(testCase, overshoot, 0.005);
 end
 
 function testInvalidInput(testCase)
@@ -33,10 +33,4 @@ testCase.verifyError(@() simulateSystem('bunk'), ...
    'simulateSystem:InvalidDesign:ShouldBeStruct');
 end
 
-function testFailure(testCase)
-testCase.verifyEqual(5,5);
-end
-function testFailure2(testCase)
-testCase.verifyEqual(6,6);
-end
 
