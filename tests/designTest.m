@@ -14,7 +14,7 @@ function testSettlingTime(testCase)
 positionAfterSettling = position(time > 2);
 
 
-verifyEqual(testCase, positionAfterSettling, 0, 'AbsTol', .000001);
+verifyEqual(testCase, positionAfterSettling, repmat(0,size(positionAfterSettling)), 'AbsTol', .000001);
 end
 
 function testOvershoot(testCase)
