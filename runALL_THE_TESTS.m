@@ -9,7 +9,7 @@ addpath(src);
 runner = TestRunner.withTextOutput('Verbosity',3);
 
 % Add the TAP plugin
-resultsDir = fullfile(ws, 'test-results');
+resultsDir = fullfile(ws, 'test-reports');
 mkdir(resultsDir);
     
 resultsFile = fullfile(resultsDir, 'testResults.xml');
