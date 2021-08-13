@@ -33,4 +33,8 @@ testCase.verifyError(@() simulateSystem('bunk'), ...
    'simulateSystem:InvalidDesign:ShouldBeStruct');
 end
 
+function failingTest(testCase)
+testCase.verifyFail("Boom");
+end
+
 
