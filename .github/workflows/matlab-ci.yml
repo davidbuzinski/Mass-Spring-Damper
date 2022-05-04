@@ -41,6 +41,7 @@ jobs:
       #    command: addpath('code'); results = runtests('IncludeSubfolders', true); assertSuccess(results);
 
       - name: Upload Test Report
+        if: ${{ always() }}
         uses: actions/upload-artifact@v3
         with:
           # Artifact name
@@ -49,6 +50,7 @@ jobs:
           path: artifacts/test-report.pdf
           
       - name: Upload Test Results
+        if: ${{ always() }}
         uses: actions/upload-artifact@v3
         with:
           # Artifact name
