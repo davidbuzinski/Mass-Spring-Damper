@@ -32,14 +32,11 @@ jobs:
       - name: Run all tests
         uses: matlab-actions/run-tests@v1
         with:
-          source-folder: 
-          select-by-folder:
-          select-by-tag:
-          test-results-pdf:
-          test-results-junit:
-          test-results-simulink-test:
-          code-coverage-cobertura:
-          model-coverage-cobertura: 
+          source-folder: .
+          test-results-pdf: artifacts/test-report.pdf
+          test-results-junit: artifacts/test-results.xml
+          code-coverage-cobertura: artifacts/coverage.xml
+
           
 
       # As an alternative to run-tests, you can use run-command to execute a MATLAB script, function, or statement.
