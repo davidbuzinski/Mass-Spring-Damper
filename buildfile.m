@@ -15,6 +15,10 @@ plan("lintAll").Dependencies = ["lint", "lintTests"];
 
 plan.DefaultTasks = "integTest";
 end
+function setupTask(context)
+addpath(fullfile(context.Plan.RootFolder,"toolbox"));
+addpath(fullfile(context.Plan.RootFolder,"toolbox","doc"));
+
 
 function lintTask(~)
 % Find static code issues
