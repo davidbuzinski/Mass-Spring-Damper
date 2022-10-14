@@ -45,6 +45,8 @@ end
 
 function docTask(~)
 % Generate the doc pages
+connector.isRunning
+connector.ensureServiceOn
 
 export("toolbox/doc/GettingStarted.mlx","toolbox/doc/GettingStarted.html");
 end
