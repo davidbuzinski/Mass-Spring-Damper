@@ -2,10 +2,11 @@ function plan = buildfile
 
 plan = buildplan(localfunctions);
 
-plan("test").Dependencies = ["mex", "pcode"];
+plan("test").Dependencies = ["mex", "pcode","setup"];
 plan("toolbox").Dependencies = ["lint", "test", "doc"];
 
 plan("doc").Dependencies = "docTest";
+plan("docTest").Dependencies = "setup";
 
 plan("install").Dependencies = "integTest";
 plan("integTest").Dependencies = "toolbox";
@@ -15,10 +16,12 @@ plan("lintAll").Dependencies = ["lint", "lintTests"];
 
 plan.DefaultTasks = "integTest";
 end
+
 function setupTask(context)
+% Setup paths for the build
 addpath(fullfile(context.Plan.RootFolder,"toolbox"));
 addpath(fullfile(context.Plan.RootFolder,"toolbox","doc"));
-
+end
 
 function lintTask(~)
 % Find static code issues
