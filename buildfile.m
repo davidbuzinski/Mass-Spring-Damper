@@ -28,11 +28,11 @@ function lintTask(~)
 
 issues = codeIssues(["toolbox", "pcode"]);
 if ~isempty(issues.Issues)
-    disp(formattedDisplayText(issues.Issues,"SuppressMarkup",feature("hotlinks")));
+    disp(formattedDisplayText(issues.Issues,"SuppressMarkup",true));
     disp("Detected code issues in source")
 end
 if ~isempty(issues.SuppressedIssues)
-    disp(formattedDisplayText(issues.SuppressedIssues,"SuppressMarkup",feature("hotlinks")));
+    disp(formattedDisplayText(issues.SuppressedIssues,"SuppressMarkup",true));
     disp("Detected suppressed issues in source")
 end
 end
