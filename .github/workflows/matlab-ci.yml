@@ -38,17 +38,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           # Artifact name
-          name: Mex files
+          name: Mex files - ${{ matrix.platform }}
           # A file, directory or wildcard pattern that describes what to upload
           path: toolbox/**/*.mex*64
-      - name: Upload p-code Files
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v3
-        with:
-          # Artifact name
-          name: Mex files
-          # A file, directory or wildcard pattern that describes what to upload
-          path: toolbox/**/*.p
+
           
   package:
     needs: test 
