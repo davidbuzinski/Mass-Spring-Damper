@@ -57,7 +57,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Start display server
-        if: matrix.platform == 'ubuntu-latest' 
         run: |
           sudo apt-get install xvfb
           Xvfb :99 &
