@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="/Users/acampbel/Library/CloudStorage/OneDrive-MathWorks/repos/msd/Mass-Spring-Damper.prj" location="/Users/acampbel/Library/CloudStorage/OneDrive-MathWorks/repos/msd" name="Mass-Spring-Damper" target="target.toolbox" target-name="Package Toolbox">
+  <configuration file="/Users/acampbel/OneDrive - MathWorks/repos/Mass-Spring-Damper/Mass-Spring-Damper.prj" location="/Users/acampbel/OneDrive - MathWorks/repos/Mass-Spring-Damper" name="Mass-Spring-Damper" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>Mass-Spring-Damper</param.appname>
     <param.authnamewatermark />
     <param.email />
@@ -112,14 +112,15 @@
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}" name="Mass-Spring-Damper.mltbx" optional="false">/Users/acampbel/Library/CloudStorage/OneDrive-MathWorks/repos/msd/Mass-Spring-Damper.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="Mass-Spring-Damper.mltbx" optional="false">/Users/acampbel/OneDrive - MathWorks/repos/Mass-Spring-Damper/Mass-Spring-Damper.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/Applications/MATLAB_R2022b.app</root>
+      <root>/Applications/MATLAB_R2023a.app</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />
+        <toolbox name="fixedpoint" />
         <toolbox name="neuralnetwork" />
       </toolboxes>
       <toolbox>
@@ -131,6 +132,11 @@
         <embeddedcoder>
           <enabled>true</enabled>
         </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
       </toolbox>
       <toolbox>
         <neuralnetwork>
@@ -147,7 +153,7 @@
       <vista>false</vista>
       <linux>false</linux>
       <solaris>false</solaris>
-      <osver>12.3</osver>
+      <osver>11.3</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>maci64</arch>

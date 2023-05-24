@@ -83,7 +83,7 @@ end
 
 function toolboxTask(~)
 % Create an mltbx toolbox package
-
+dir toolbox/*.mex*
 matlab.addons.toolbox.packageToolbox("Mass-Spring-Damper.prj","release/Mass-Spring-Damper.mltbx");
 end
 
@@ -155,7 +155,6 @@ end
 
 function installTask(~)
 % Install the toolbox locally
-
 matlab.addons.toolbox.installToolbox("release/Mass-Spring-Damper.mltbx");
 end
 
