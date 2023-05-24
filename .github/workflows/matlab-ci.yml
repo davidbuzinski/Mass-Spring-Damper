@@ -82,7 +82,7 @@ jobs:
           path: toolbox
           
       - name: Move artifacts & delete artifact folders
-        run: mv Mex-Artifacts-*-R2022b/**/*.mex*64 . & rmdir Mex-Artifacts-*
+        run: mv Mex-Artifacts-R2022b-*/**/*.mex*64 . & rmdir Mex-Artifacts-*
         working-directory: toolbox
 
       # Runs a set of commands using the runners shell
