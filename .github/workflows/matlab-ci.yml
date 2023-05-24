@@ -67,7 +67,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ runner.tool_cache }}/MATLAB
-          key: ${{ matrix.platform }}
+          key: ubuntu-latest
 
       # Sets up MATLAB on the GitHub Actions runner
       - name: Setup MATLAB
