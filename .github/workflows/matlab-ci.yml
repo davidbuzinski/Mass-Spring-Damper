@@ -12,7 +12,7 @@ jobs:
   # This workflow contains a single job called "build"
 
 
-  test:
+  compile-and-test:
     strategy:
       matrix:
         release: [R2022b, R2023a]
