@@ -15,8 +15,8 @@ jobs:
   compile-and-test:
     strategy:
       matrix:
-        release: [R2022b]
-        platform: [ubuntu-latest]
+        release: [R2022b, R2023a]
+        platform: [ubuntu-latest, windows-latest, macos-latest]
         
     # The type of runner that the job will run on
     runs-on: ${{ matrix.platform }}
