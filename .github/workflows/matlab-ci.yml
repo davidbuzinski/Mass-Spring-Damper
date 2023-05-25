@@ -53,7 +53,7 @@ jobs:
 
           
   create-R2022b-toolbox:
-    needs: test 
+    needs: compile-and-test 
     runs-on: ubuntu-latest
     
     steps:
