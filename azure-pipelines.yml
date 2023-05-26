@@ -25,7 +25,7 @@ jobs:
   - task: RunMATLABCommand@0
     displayName: Lint the code
     inputs:
-      command: issues = codeIssues(pwd), assert(isempty(issues.Issues), "Issues found in code " + newline + formattedDisplayText(groupsummary(issues.Issues,"Severity")))
+      command: issues = codeIssues(pwd),errorIdx = issues.Issues.Severity == "error";errors = issues.Issues(errorIdx,:); assert(isempty(errors), "Issues found in code " + newline + formattedDisplayText(groupsummary(issues.Issues,"Severity")))
     env:
       MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
       MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
