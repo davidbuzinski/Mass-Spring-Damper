@@ -16,6 +16,9 @@ jobs:
   - task: InstallMATLAB@0
     inputs:
       release: $(MATLAB_RELEASE)
+    env:
+      MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
+      MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
  
  
  # This task lints all the code found in the workspace and fails the build if anything is found. Note this depends on the two functions sent to you in a prior email
