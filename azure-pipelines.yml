@@ -1,0 +1,60 @@
+trigger:
+- main
+ 
+jobs:
+- job: 'LintAndTestCode'
+ 
+  pool:
+    vmImage: ubuntu-latest
+ 
+  strategy:
+    matrix:
+      R2023a:
+        MATLAB_RELEASE: 'R2023a'
+ 
+  steps:
+  - task: InstallMATLAB@0
+    inputs:
+      release: $(MATLAB_RELEASE)
+ 
+ 
+ # This task lints all the code found in the workspace and fails the build if anything is found. Note this depends on the two functions sent to you in a prior email
+  - task: RunMATLABCommand@0
+    displayName: Lint the code
+    inputs:
+      command: issues = codeIssues(pwd), assert(isempty(issues.Issues), "Issues found in code " + newline + formattedDisplayText(groupsummary(issues.Issues,"Severity")))
+    env:
+      MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
+      MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
+ 
+  # This task Runs all the MATLAB and Simulink tests and generate variety of test artifacts. Check the documentation for all supported task parameters.
+  - task: RunMATLABTests@0
+    inputs:
+      sourceFolder: toolbox # Replace with your appropriate source folders names separated by ';' or ':'       
+      testResultsPDF: test-results/results.pdf # Path to generate PDF test reports.
+      testResultsJUnit: test-results/results.xml # Path to generate Junit test report.
+      codeCoverageCobertura: code-coverage/coverage.xml # Path to generate Cobertura code coverage.
+    env:
+      MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
+      MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
+       
+        # This task Runs all the MATLAB and Simulink tests and generate variety of test artifacts. Check the documentation for all supported task parameters.
+  - task: RunMATLABCommand@0
+    inputs:
+      command: cd("models"), load_system("myf14"), disp("loaded f14")
+    env:
+      MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
+      MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
+ 
+# Tasks that help publish the test artifacts generated 
+  - task: PublishBuildArtifacts@1  # Publish PDF report as build artifact 
+    inputs:
+      pathToPublish: test-results/results.pdf 
+  - task: PublishTestResults@2      # Publish Junit test report 
+    condition: succeededOrFailed()
+    inputs:
+      testResultsFiles: test-results/results.xml
+  - task: PublishCodeCoverageResults@1 # Publish Cobertura code coverage report 
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: code-coverage/coverage.xml'
