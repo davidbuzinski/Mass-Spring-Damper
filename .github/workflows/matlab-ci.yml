@@ -105,7 +105,7 @@ jobs:
           tasks: toolbox
           
           
-  test-against-latest-matlab:
+  canary-tests:
     strategy:
       matrix:
         platform: [ubuntu-latest, windows-latest, macos-latest]
@@ -117,13 +117,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
-      - name: Cache MATLAB
-        id: cache-matlab
-        uses: actions/cache@v3
-        with:
-          path: ${{ runner.tool_cache }}/MATLAB
-          key: MATLAB-latest-${{ matrix.platform }}
       
       # Sets up MATLAB on the GitHub Actions runner
       - name: Setup MATLAB
