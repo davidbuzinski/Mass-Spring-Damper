@@ -83,19 +83,19 @@ jobs:
         if: ${{ always() }}
         uses: actions/download-artifact@v3
         with:
-          name: Mex-Artifacts-R2022b-macos-latest
+          name: Mex-Artifacts-macos-latest
           path: toolbox
       - name: Download windows artifacts
         if: ${{ always() }}
         uses: actions/download-artifact@v3
         with:
-          name: Mex-Artifacts-R2022b-windows-latest
+          name: Mex-Artifacts-windows-latest
           path: toolbox
       - name: Download linux artifacts
         if: ${{ always() }}
         uses: actions/download-artifact@v3
         with:
-          name: Mex-Artifacts-R2022b-ubuntu-latest
+          name: Mex-Artifacts-ubuntu-latest
           path: toolbox
 
       # Runs a set of commands using the runners shell
