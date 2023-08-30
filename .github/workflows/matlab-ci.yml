@@ -7,6 +7,8 @@ on:
   push:                       # Runs on push events
   pull_request:               # Runs on pull requests
   workflow_dispatch:          # Allows you to run this workflow manually from the Actions tab
+  schedule:
+    - cron:  '49/61 22/25 * * *' # schedule a daily-ish build
     
 jobs:
   # This workflow contains a single job called "build"
