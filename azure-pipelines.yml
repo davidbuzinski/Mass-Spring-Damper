@@ -1,6 +1,14 @@
 trigger:
 - main
- 
+
+
+schedules:
+- cron: '43/61 13/25 1/6 * *'
+  displayName: Weekly-ish build
+  branches:
+    include:
+    - main
+    
 jobs:
 - job: 'RunMATLABBuild'
  
