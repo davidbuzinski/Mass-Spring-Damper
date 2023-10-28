@@ -11,6 +11,8 @@ jobs:
     matrix:
       R2023a:
         MATLAB_RELEASE: 'R2023b'
+  variables: 
+  - group: matlab-batch-license
  
   steps:
   - task: InstallMATLAB@0
