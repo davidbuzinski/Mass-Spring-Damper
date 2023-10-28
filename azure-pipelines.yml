@@ -15,7 +15,7 @@ jobs:
       linux-MATLAB-R2022b:
         PLATFORM: 'ubuntu-latest'
         MATLAB_RELEASE: R2022b
-      mac-MATLAB-R2023a:
+      mac-MATLAB-R2022b:
         PLATFORM: 'macOS-latest'
         MATLAB_RELEASE: R2022b
         
