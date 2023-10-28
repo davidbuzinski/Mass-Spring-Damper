@@ -10,7 +10,7 @@ jobs:
   strategy:
     matrix:
       R2023a:
-        MATLAB_RELEASE: 'R2023a'
+        MATLAB_RELEASE: 'R2023b'
  
   steps:
   - task: InstallMATLAB@0
