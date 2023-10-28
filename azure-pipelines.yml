@@ -2,7 +2,7 @@ trigger:
 - main
  
 jobs:
-- job: 'Run MATLAB Build'
+- job: 'RunMATLABBuild'
  
   pool:
     vmImage: $(PLATFORM)
