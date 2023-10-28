@@ -5,16 +5,39 @@ jobs:
 - job: 'LintAndTestCode'
  
   pool:
-    vmImage: ubuntu-latest
- 
+    vmImage: $(PLATFORM)
+
   strategy:
     matrix:
-      R2022b:
-        MATLAB_RELEASE: 'R2022b'
-      R2023a:
-        MATLAB_RELEASE: 'R2023a'
-      R2023b:
-        MATLAB_RELEASE: 'R2023b'
+      windows-MATLAB-R2022b:
+        PLATFORM: 'windows-latest'
+        MATLAB_RELEASE: R2022b
+      linux-MATLAB-R2022b:
+        PLATFORM: 'ubuntu-latest'
+        MATLAB_RELEASE: R2022b
+      mac-MATLAB-R2023a:
+        PLATFORM: 'macOS-latest'
+        MATLAB_RELEASE: R2022b
+        
+      windows-MATLAB-R2023a:
+        PLATFORM: 'windows-latest'
+        MATLAB_RELEASE: R2023a
+      linux-MATLAB-R2023a:
+        PLATFORM: 'ubuntu-latest'
+        MATLAB_RELEASE: R2023a
+      mac-MATLAB-R2023a:
+        PLATFORM: 'macOS-latest'
+        MATLAB_RELEASE: R2023a
+        
+      windows-MATLAB-R2023b:
+        PLATFORM: 'windows-latest'
+        MATLAB_RELEASE: R2023b
+      linux-MATLAB-R2023b:
+        PLATFORM: 'ubuntu-latest'
+        MATLAB_RELEASE: R2023b
+      mac-MATLAB-R2023b:
+        PLATFORM: 'macOS-latest'
+        MATLAB_RELEASE: R2023b
         
   variables: 
   - group: matlab-batch-license
@@ -22,7 +45,7 @@ jobs:
   steps:
   - task: Cache@2
     inputs:
-      key: MATLAB-$(MATLAB_RELEASE)
+      key: MATLAB-$(MATLAB_RELEASE)-$(PLATFORM)
       path: $(AGENT_TOOLSDIRECTORY)/MATLAB
   - task: InstallMATLAB@1
     inputs:
