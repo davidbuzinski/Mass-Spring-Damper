@@ -20,12 +20,13 @@ jobs:
   - group: matlab-batch-license
  
   steps:
-  - task: InstallMATLAB@0
+  - task: Cache@2
+    inputs:
+      key: MATLAB-$(MATLAB_RELEASE)
+      path: $(AGENT_TOOLSDIRECTORY)/MATLAB
+  - task: InstallMATLAB@1
     inputs:
       release: $(MATLAB_RELEASE)
-    env:
-      MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
-      MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
  
   # This task Runs all the MATLAB and Simulink tests and generate variety of test artifacts. Check the documentation for all supported task parameters.
   - task: RunMATLABBuild@0
