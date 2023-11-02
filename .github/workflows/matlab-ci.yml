@@ -121,8 +121,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Generate mex files & run tests
-        uses: matlab-actions/run-build@v1
+        uses: matlab-actions/run-command@v1
         with: 
-          tasks: test
+          command: ver
 
   
