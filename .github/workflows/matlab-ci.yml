@@ -123,6 +123,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        release: [ R2023a, R2023b]
         
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
@@ -135,6 +136,8 @@ jobs:
       # Sets up MATLAB on the GitHub Actions runner
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2-rc0
+        with:
+          release: R2023a
 
       - uses: actions/checkout@v3
       - name: Start display server
@@ -150,12 +153,5 @@ jobs:
         with: 
           tasks: toolbox
 
-      - name: Upload Build traces
-        uses: actions/upload-artifact@v3
-        with:
-          # Artifact name
-          name: 23b-build-traces-${{ matrix.os }}
-          # A file, directory or wildcard pattern that describes what to upload
-          path: .buildtool/**/*
 
   
