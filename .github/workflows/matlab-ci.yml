@@ -11,7 +11,7 @@ on:
     - cron:  '49/61 22/25 4/6 * *' # schedule a weekly-ish build
 
 env:
-  MATHWORKS_LICENSING_ENDPOINT: stage
+  MATHWORKS_LICENSING_ENDPOINT: dev
     
 jobs:
   # This workflow contains a single job called "build"
