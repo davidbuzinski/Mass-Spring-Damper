@@ -21,6 +21,11 @@ function setupTask(context)
 % Setup paths for the build
 addpath(fullfile(context.Plan.RootFolder,"toolbox"));
 addpath(fullfile(context.Plan.RootFolder,"toolbox","doc"));
+
+if ismac
+    setenv("DEVELOPER_DIR","/Applications/Xcode12.3.0.app/Contents/Developer")
+end
+
 end
 
 function lintTask(~)
