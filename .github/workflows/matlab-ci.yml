@@ -20,7 +20,7 @@ jobs:
   compile-and-test:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest, macos-latest-xlarge]
         
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
