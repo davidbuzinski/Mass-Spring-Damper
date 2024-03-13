@@ -10,10 +10,23 @@ on:
 
 jobs:          
   build-toolbox:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+    runs-on: ${ matrix.os }
     steps:
       - uses: actions/checkout@v4
-      
+
+      - name: Start display server
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get install xvfb
+          Xvfb :99 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+
       # Sets up MATLAB on the GitHub Actions runner
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2
