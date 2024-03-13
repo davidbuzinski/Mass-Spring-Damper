@@ -46,8 +46,8 @@ end
 
 function docTask(~)
 % Generate the doc pages
-connector.internal.startConnectionProfile("loopbackHttps");
-com.mathworks.matlabserver.connector.api.Connector.ensureServiceOn();
+% connector.internal.startConnectionProfile("loopbackHttps");
+% com.mathworks.matlabserver.connector.api.Connector.ensureServiceOn();
 
 export("toolbox/doc/GettingStarted.mlx","toolbox/doc/GettingStarted.html");
 end
