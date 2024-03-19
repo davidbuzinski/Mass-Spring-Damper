@@ -39,4 +39,4 @@ jobs:
         uses: matlab-actions/run-build@v2
         with: 
           tasks: toolbox
-          
+          startup-options: -nojvm
